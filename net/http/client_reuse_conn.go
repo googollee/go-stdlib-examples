@@ -76,6 +76,8 @@ func main() {
 			log.Fatalln("post to", url, "failed:", err)
 		}
 
+		// Closing response.Body won't help
+		resp.Body.Close()
 		fmt.Println("return:", resp.StatusCode, resp.Status)
 	}
 }
